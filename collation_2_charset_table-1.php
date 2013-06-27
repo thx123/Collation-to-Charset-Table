@@ -35,6 +35,8 @@ $tablename = 'my_table';
  * @var string Collation to use (utf8 only)
  */
 $collation = 'utf8_general_ci';
+#$collation = 'utf8_spanish_ci';
+#$collation = 'utf8_swedish_ci';
 /**
  * @var string PDO DSN
  */
@@ -63,7 +65,7 @@ $db->query("USE $dbname;");
 $db->query(
 	"CREATE TABLE IF NOT EXISTS `$tablename` (
 		  `dec` int(11) NOT NULL,
-		  `mychar` char(1) NOT NULL,
+		  `mychar` char(1) CHARACTER SET utf8 COLLATE $collation NOT NULL,
 		  `hex` char(4) NOT NULL,
 		  PRIMARY KEY  (`dec`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8;"
